@@ -51,7 +51,6 @@
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
     close: '<path d="M6 6l12 12M18 6 6 18"/>',
     check: '<path d="m5 12 5 5 9-10"/>',
-    bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
     users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 1.4 4.5 4"/>',
     tag: '<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/>',
     prev: '<path d="m15 6-6 6 6 6"/>',
@@ -102,11 +101,11 @@
   /* ---------------------------------------------------------- shared shell */
   function renderShell() {
     const cur = PAGE === 'academy' ? 'academies' : PAGE;
-    const links = [['home', 'Home', 'index.html'], ['academies', 'Academies', 'index.html#academies'], ['store', 'Sports Gear', 'store.html'], ['bulk', 'Bulk Orders', 'store.html#bulk'], ['contact', 'Contact', 'index.html#contact']];
+    const links = [['home', 'Home', 'index.html'], ['academies', 'Academies', 'index.html#academies'], ['store', 'Sports Gear', 'store.html'], ['bulk', 'Bulk Orders', 'store.html#bulk'], ['tournament', 'Tournament hosting', 'tournament.html'], ['contact', 'Contact', 'index.html#contact']];
     const ac = PAGE === 'academy' ? S.academies.find(x => x.slug === B.dataset.academy) : null;
     const shellNum = (ac && ac.whatsapp) || C.whatsapp;
     const hi = waLink(shellNum, `Hi ${BRAND}! I have a question.`);
-    const logo = `<a class="logo" href="${url('index.html')}" aria-label="${esc(BRAND)} home"><i>${ui('bolt')}</i>${esc(BRAND)}</a>`;
+    const logo = `<a class="logo" href="${url('index.html')}" aria-label="${esc(BRAND)} home"><i><img src="${url('assets/img/logo-mark.svg')}" alt="" width="44" height="44"></i>${esc(BRAND)}</a>`;
 
     const h = $('#site-header');
     h.className = 'hdr';
@@ -121,7 +120,7 @@
     f.innerHTML = `<div class="wrap"><div class="cols">
       <div>${logo}<p>${esc(S.brand.intro)}</p>${socials.length ? `<div class="socials">${socials.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join('')}</div>` : ''}</div>
       <div><h4>Academies</h4><ul>${S.academies.map(a => `<li><a href="${url('academies/' + a.slug + '.html')}">${esc(a.name)}</a></li>`).join('')}</ul></div>
-      <div><h4>Explore</h4><ul><li><a href="${url('index.html')}">Home</a></li><li><a href="${url('store.html')}">Sports gear</a></li><li><a href="${url('store.html#bulk')}">Bulk orders</a></li><li><a href="${url('index.html#contact')}">Contact</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="${url('index.html')}">Home</a></li><li><a href="${url('store.html')}">Sports gear</a></li><li><a href="${url('store.html#bulk')}">Bulk orders</a></li><li><a href="${url('tournament.html')}">Live scores</a></li><li><a href="${url('index.html#contact')}">Contact</a></li></ul></div>
       <div><h4>Say hello</h4><ul>
         ${ac ? `<li class="ico-links"><a class="btn btn-wa btn-icon" href="${hi}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">${wa()}</a>
         <a class="btn btn-ghost btn-icon" href="tel:+${shellNum}" aria-label="Call">${ui('phone')}</a>
@@ -550,8 +549,9 @@
   }
 
   /* ----------------------------------------------------------------- boot */
+  window.SM = { ui, wa, sport, waLink };      // shared helpers for other page scripts (tournament.js)
   renderShell();
-  ({ home, store, academy }[PAGE] || home)();
+  if (PAGE !== 'tournament') ({ home, store, academy }[PAGE] || home)();   // the live-scores page is drawn by tournament.js
   enquirySubmit();
   enhance();
   initPlay();
