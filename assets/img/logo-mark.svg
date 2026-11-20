@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#241c0f"/><stop offset="1" stop-color="#0a0804"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e7b8"/><stop offset=".5" stop-color="#b8903f"/><stop offset="1" stop-color="#6f4f1f"/></linearGradient>
+    <linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcb96f"/><stop offset="1" stop-color="#8a642a"/></linearGradient>
+    <linearGradient id="b2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ecd291"/><stop offset="1" stop-color="#9c7633"/></linearGradient>
+    <linearGradient id="b3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf3cf"/><stop offset="1" stop-color="#bf9444"/></linearGradient>
+    <linearGradient id="b4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e4c47e"/><stop offset="1" stop-color="#8f6b2d"/></linearGradient>
+  </defs>
+  <rect x="3" y="3" width="250" height="250" rx="58" fill="url(#tile)"/>
+  <rect x="6" y="6" width="244" height="244" rx="55" fill="none" stroke="url(#rim)" stroke-width="6"/>
+  <rect x="31" y="84" width="44" height="130" rx="5" fill="url(#b1)"/>
+  <rect x="81" y="66" width="44" height="148" rx="5" fill="url(#b2)"/>
+  <rect x="131" y="44" width="44" height="170" rx="5" fill="url(#b3)"/>
+  <rect x="181" y="58" width="44" height="156" rx="5" fill="url(#b4)"/>
+  <rect x="20" y="214" width="216" height="14" rx="7" fill="#e4c47e"/>
+  <g fill="none" stroke="#17110a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="53" cy="124" r="10" fill="#17110a" stroke="none"/>
+    <path d="M53 138 51 172M51 172 43 202M51 172 61 202M52 148 66 158"/>
+    <ellipse cx="51" cy="166" rx="17" ry="7" transform="rotate(-12 51 166)" stroke-width="6"/>
+    <circle cx="97" cy="116" r="10" fill="#17110a" stroke="none"/>
+    <path d="M98 130 93 168M93 168 86 202M93 168 108 186 105 202M97 140 109 144"/>
+    <circle cx="116" cy="148" r="8.5" fill="#17110a" stroke="none"/>
+    <circle cx="153" cy="98" r="10" fill="#17110a" stroke="none"/>
+    <path d="M153 112 153 168M153 134 135 116M153 134 171 116M153 168 146 194M153 168 160 194"/>
+    <path d="M136 204 171 199" stroke-width="9"/>
+    <circle cx="204" cy="112" r="10" fill="#17110a" stroke="none"/>
+    <path d="M203 126 196 168M202 136 188 150M202 136 218 128M196 168 192 186 188 204M196 168 211 184 209 196"/>
+    <circle cx="214" cy="200" r="8.5" fill="#17110a" stroke="none"/>
+  </g>
+</svg>
